@@ -1,1 +1,15 @@
+server:
+    port: 8080
 
+resilience4j.retry:
+    configs:
+        default:
+            maxAttempts: 3  # 최대 시도 회수
+            waitDuration: 1000  # 각 시도마다 대기 시간 (ms)
+            retryExceptions: # retryExceptions 에 지정된 예외는 재시도
+                - com.example.inflearnresilience4jcircuitbreaker.exception.RetryException
+            ignoreExceptions: # retryExceptions 에 지정되지 않은 예외는 ignoreExceptions 로 처리됨
+                - com.example.inflearnresilience4jcircuitbreaker.exception.IgnoreException
+    instances:
+        simpleRetryConfig:
+            baseConfig: default
