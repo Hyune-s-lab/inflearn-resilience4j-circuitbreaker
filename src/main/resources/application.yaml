@@ -39,3 +39,13 @@ resilience4j.circuitbreaker:
     instances:
         simpleCircuitBreakerConfig:
             baseConfig: default
+
+management:
+    endpoints.web.exposure.include: '*'
+    endpoint.health.show-details: always
+    health:
+        diskSpace.enabled: false
+        circuitbreakers.enabled: true
+    metrics.distribution.percentiles-histogram:
+        http.server.requests: true
+        resilience4j.circuitbreaker.calls: true
