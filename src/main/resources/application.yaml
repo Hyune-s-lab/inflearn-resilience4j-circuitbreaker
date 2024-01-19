@@ -18,7 +18,7 @@ resilience4j.circuitbreaker:
     configs:
         default:
             slidingWindowType: COUNT_BASED
-            minimumNumberOfCalls: 7                                   # 최소 7번까지는 무조건 CLOSE 로 가정하고 호출한다.
+            minimumNumberOfCalls: 7                                   # 최소 7번까지는 무조건 CLOSE 로 가정하고 호출한다. 보통 slidingWindowSize 와 같게 하며, 그보다 크면 의미가 없다.
             slidingWindowSize: 10                                     # (minimumNumberOfCalls 이후로는) 10개의 요청을 기준으로 판단한다.
             waitDurationInOpenState: 10s                              # OPEN 상태에서 HALF_OPEN 으로 가려면 얼마나 기다릴 것인가?
 
